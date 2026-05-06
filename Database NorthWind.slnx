@@ -3,4 +3,8 @@
     <Build />
     <Deploy />
   </Project>
+  <Project Path="NorthWindDW/NorthWindDW.sqlproj" Id="a1171368-e395-4b4f-93e7-2ddffa184403">
+    <Build />
+    <Deploy />
+  </Project>
 </Solution>
