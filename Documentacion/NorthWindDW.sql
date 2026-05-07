@@ -1,0 +1,263 @@
+USE [master]
+GO
+/****** Objeto: Database [NorthWindDW] Fecha de script: 6/5/2026 22:25:24 ******/
+CREATE DATABASE [NorthWindDW]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'NorthWindDW', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL17.MSSQLSERVER\MSSQL\DATA\NorthWindDW.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'NorthWindDW_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL17.MSSQLSERVER\MSSQL\DATA\NorthWindDW_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [NorthWindDW] SET COMPATIBILITY_LEVEL = 170
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [NorthWindDW].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [NorthWindDW] SET ANSI_NULL_DEFAULT ON 
+GO
+ALTER DATABASE [NorthWindDW] SET ANSI_NULLS ON 
+GO
+ALTER DATABASE [NorthWindDW] SET ANSI_PADDING ON 
+GO
+ALTER DATABASE [NorthWindDW] SET ANSI_WARNINGS ON 
+GO
+ALTER DATABASE [NorthWindDW] SET ARITHABORT ON 
+GO
+ALTER DATABASE [NorthWindDW] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [NorthWindDW] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET CURSOR_DEFAULT  LOCAL 
+GO
+ALTER DATABASE [NorthWindDW] SET CONCAT_NULL_YIELDS_NULL ON 
+GO
+ALTER DATABASE [NorthWindDW] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET QUOTED_IDENTIFIER ON 
+GO
+ALTER DATABASE [NorthWindDW] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [NorthWindDW] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [NorthWindDW] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET RECOVERY FULL 
+GO
+ALTER DATABASE [NorthWindDW] SET  MULTI_USER 
+GO
+ALTER DATABASE [NorthWindDW] SET PAGE_VERIFY NONE  
+GO
+ALTER DATABASE [NorthWindDW] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [NorthWindDW] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+ALTER DATABASE [NorthWindDW] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [NorthWindDW] SET OPTIMIZED_LOCKING = OFF 
+GO
+ALTER DATABASE [NorthWindDW] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'NorthWindDW', N'ON'
+GO
+ALTER DATABASE [NorthWindDW] SET QUERY_STORE = OFF
+GO
+USE [NorthWindDW]
+GO
+/****** Objeto: Table [dbo].[DimCustomer] Fecha de script: 6/5/2026 22:25:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DimCustomer](
+	[CustomerKey] [int] IDENTITY(1,1) NOT NULL,
+	[CustomerID] [nchar](5) NULL,
+	[CompanyName] [nvarchar](40) NULL,
+	[ContactName] [nvarchar](30) NULL,
+	[City] [nvarchar](15) NULL,
+	[Region] [nvarchar](15) NULL,
+	[Country] [nvarchar](15) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CustomerKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Objeto: Table [dbo].[DimDate] Fecha de script: 6/5/2026 22:25:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DimDate](
+	[DateID] [int] NOT NULL,
+	[FullDate] [date] NULL,
+	[Day] [int] NULL,
+	[Month] [int] NULL,
+	[Year] [int] NULL,
+	[Quarter] [int] NULL,
+	[DayOfWeek] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[DateID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Objeto: Table [dbo].[DimEmployee] Fecha de script: 6/5/2026 22:25:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DimEmployee](
+	[EmployeeKey] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeID] [int] NULL,
+	[FullName] [nvarchar](50) NULL,
+	[Title] [nvarchar](30) NULL,
+	[City] [nvarchar](15) NULL,
+	[Region] [nvarchar](15) NULL,
+	[Country] [nvarchar](15) NULL,
+	[HireDate] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[EmployeeKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Objeto: Table [dbo].[DimGeography] Fecha de script: 6/5/2026 22:25:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DimGeography](
+	[GeographyKey] [int] IDENTITY(1,1) NOT NULL,
+	[TerritoryID] [nvarchar](20) NULL,
+	[TerritoryDescription] [nchar](50) NULL,
+	[RegionDescription] [nchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[GeographyKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Objeto: Table [dbo].[DimProduct] Fecha de script: 6/5/2026 22:25:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DimProduct](
+	[ProductKey] [int] IDENTITY(1,1) NOT NULL,
+	[ProductID] [int] NULL,
+	[ProductName] [nvarchar](40) NULL,
+	[CategoryName] [nvarchar](15) NULL,
+	[SupplierName] [nvarchar](40) NULL,
+	[QuantityPerUnit] [nvarchar](20) NULL,
+	[UnitPrice] [money] NULL,
+	[UnitsInStock] [smallint] NULL,
+	[Discontinued] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ProductKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Objeto: Table [dbo].[DimShipper] Fecha de script: 6/5/2026 22:25:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DimShipper](
+	[ShipperKey] [int] IDENTITY(1,1) NOT NULL,
+	[ShipperID] [int] NULL,
+	[CompanyName] [nvarchar](40) NULL,
+	[Phone] [nvarchar](24) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ShipperKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Objeto: Table [dbo].[FactSales] Fecha de script: 6/5/2026 22:25:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FactSales](
+	[FactID] [int] IDENTITY(1,1) NOT NULL,
+	[DateID] [int] NOT NULL,
+	[CustomerKey] [int] NOT NULL,
+	[ProductKey] [int] NOT NULL,
+	[EmployeeKey] [int] NOT NULL,
+	[ShipperKey] [int] NOT NULL,
+	[OrderID] [int] NULL,
+	[Quantity] [smallint] NULL,
+	[UnitPrice] [money] NULL,
+	[Discount] [real] NULL,
+	[Freight] [money] NULL,
+	[TotalAmount] [money] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[FactID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Objeto: Table [dbo].[tab] Fecha de script: 6/5/2026 22:25:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tab](
+	[Id] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_Customer] FOREIGN KEY([CustomerKey])
+REFERENCES [dbo].[DimCustomer] ([CustomerKey])
+GO
+ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_Customer]
+GO
+ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_Date] FOREIGN KEY([DateID])
+REFERENCES [dbo].[DimDate] ([DateID])
+GO
+ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_Date]
+GO
+ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_Employee] FOREIGN KEY([EmployeeKey])
+REFERENCES [dbo].[DimEmployee] ([EmployeeKey])
+GO
+ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_Employee]
+GO
+ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_Product] FOREIGN KEY([ProductKey])
+REFERENCES [dbo].[DimProduct] ([ProductKey])
+GO
+ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_Product]
+GO
+ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_Shipper] FOREIGN KEY([ShipperKey])
+REFERENCES [dbo].[DimShipper] ([ShipperKey])
+GO
+ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_Shipper]
+GO
+USE [master]
+GO
+ALTER DATABASE [NorthWindDW] SET  READ_WRITE 
+GO
