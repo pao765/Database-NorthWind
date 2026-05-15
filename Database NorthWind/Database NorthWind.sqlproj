@@ -97,5 +97,9 @@
     <Build Include="dbo\Stored Procedures\Sales by Year.sql" />
     <Build Include="dbo\Stored Procedures\SalesByCategory.sql" />
     <Build Include="dbo\Stored Procedures\Ten Most Expensive Products.sql" />
+    <Build Include="dbo\Stored Procedures\GetProductChangesByRowVersion.sql" />
+    <Build Include="dbo\Stored Procedures\GetEmployeeChangesByRowVersion.sql" />
+    <Build Include="dbo\Stored Procedures\GetDatabaseRowVersion.sql" />
+    <Build Include="dbo\Stored Procedures\GetCustomerChangesByRowVersion.sql" />
   </ItemGroup>
 </Project>
