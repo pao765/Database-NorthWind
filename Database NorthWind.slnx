@@ -7,4 +7,12 @@
     <Build />
     <Deploy />
   </Project>
+  <Project Path="NorthWind_DW/NorthWind_DW.sqlproj" Id="bd6d41f4-f0f1-418a-90f8-630a80dfe757">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="NorthWind_OLTP/NorthWind_OLTP.sqlproj" Id="901337cd-0729-4d61-af64-509175de2881">
+    <Build />
+    <Deploy />
+  </Project>
 </Solution>
