@@ -1,17 +1,30 @@
 <Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Development" />
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="../SSIS_Demo/NorthWind_ETL.dtproj" Type="c9674dcb-5085-4a16-b785-4c70dd1589bd">
+    <BuildType Project="Development" />
+    <Platform Project="?" />
+  </Project>
   <Project Path="Database NorthWind/Database NorthWind.sqlproj" Id="b509d513-f60e-4539-be4a-aa34ed4372be">
+    <BuildType Solution="Development|*" Project="Release" />
     <Build />
     <Deploy />
   </Project>
   <Project Path="NorthWindDW/NorthWindDW.sqlproj" Id="a1171368-e395-4b4f-93e7-2ddffa184403">
+    <BuildType Solution="Development|*" Project="Release" />
     <Build />
     <Deploy />
   </Project>
   <Project Path="NorthWind_DW/NorthWind_DW.sqlproj" Id="bd6d41f4-f0f1-418a-90f8-630a80dfe757">
+    <BuildType Solution="Development|*" Project="Release" />
     <Build />
     <Deploy />
   </Project>
   <Project Path="NorthWind_OLTP/NorthWind_OLTP.sqlproj" Id="901337cd-0729-4d61-af64-509175de2881">
+    <BuildType Solution="Development|*" Project="Release" />
     <Build />
     <Deploy />
   </Project>
