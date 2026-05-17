@@ -1,10 +1,25 @@
-﻿
-create view "Product Sales for 1997" AS
-SELECT Categories.CategoryName, Products.ProductName, 
-Sum(CONVERT(money,("Order Details".UnitPrice*Quantity*(1-Discount)/100))*100) AS ProductSales
-FROM (Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID) 
-	INNER JOIN (Orders 
-		INNER JOIN "Order Details" ON Orders.OrderID = "Order Details".OrderID) 
-	ON Products.ProductID = "Order Details".ProductID
-WHERE (((Orders.ShippedDate) Between '19970101' And '19971231'))
-GROUP BY Categories.CategoryName, Products.ProductName
+﻿CREATE VIEW [dbo].[Product Sales for 1997] AS
+SELECT 
+    C.CategoryName,
+    P.ProductName,
+
+    SUM(
+        CONVERT(MONEY, (OD.UnitPrice * OD.Quantity * (1 - OD.Discount)))
+    ) AS ProductSales
+
+FROM [dbo].[Categories] C
+
+INNER JOIN [dbo].[Products] P
+    ON C.CategoryID = P.CategoryID
+
+INNER JOIN [dbo].[OrderDetails] OD
+    ON P.ProductID = OD.ProductID
+
+INNER JOIN [dbo].[Orders] O
+    ON O.OrderID = OD.OrderID
+
+WHERE O.ShippedDate BETWEEN '19970101' AND '19971231'
+
+GROUP BY
+    C.CategoryName,
+    P.ProductName;

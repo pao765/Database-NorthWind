@@ -13,6 +13,11 @@
     <Build />
     <Deploy />
   </Project>
+  <Project Path="dbmp/dbmp.sqlproj" Id="d5b55887-88f6-4444-9a98-1ead9d4fae03">
+    <BuildType Solution="Development|*" Project="Release" />
+    <Build />
+    <Deploy />
+  </Project>
   <Project Path="NorthWindDW/NorthWindDW.sqlproj" Id="a1171368-e395-4b4f-93e7-2ddffa184403">
     <BuildType Solution="Development|*" Project="Release" />
     <Build />
