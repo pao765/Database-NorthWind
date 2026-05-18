@@ -11,7 +11,17 @@ El proyecto implementa una solución completa de base de datos para NorthWind, u
  
 ## Dominio del Negocio
  Ventas de productos
-
+## Arquitectura de la Solucion 
+       OLTP (NorthWind)
+               ↓
+        Procesos ETL (SSIS)
+               ↓
+          Staging Area
+               ↓
+        Data Warehouse
+               ↓
+        Reportes y análisis
+        
  ## Modelo de Datos
 
 ### 1. Modelo OLTP
@@ -23,6 +33,15 @@ El proyecto implementa una solución completa de base de datos para NorthWind, u
 - **17 claves foráneas**
 - **20 índices** para optimización
 - **8 check constraints** para validación de datos
+**Tablas principales**
+ -Customers
+ -Orders
+ -Order Details
+ -Products
+ -Employees
+ -Categories
+ -Suppliers
+ -Shippers
 
  ### 2. Modelo Data Warehouse
 
@@ -31,13 +50,107 @@ El proyecto implementa una solución completa de base de datos para NorthWind, u
 - **6 tablas de dimensión**: DimDate, DimCustomer, DimEmployee, DimProduct, DimGeography, DimShipper
 - **1 tabla de hechos**: FactSales
 - **5 relaciones** (claves foráneas desde la tabla de hechos hacia las dimensiones)
-
+**Tablas de demensiones**
+ -DimDate
+ -DimCustomer
+ -DimEmployee
+ -DimProduct
+ -DimGeography
+ -DimShipper
+**Tablas de hechos**
+ -FactSales
   
-## Instrucciones para Desplegar
+## Proyecto ETL (SSIS)
 
- Abrir SSMS y conectarse al servidor
-Ejecutar scripts en orden (OLTP Y DW)
+**Herramientas utilizadas**
+ SQL Server 2025
+ SQL Server Integration Services (SSIS)
+ SQL Server Data Tools (SSDT)
+ Visual Studio 2022
+ 
+## Procesos ETL Implementados
+**Extracción**
 
+Obtención de datos desde la base OLTP mediante:
 
+ OLE DB Source
+ Consultas SQL
+**Transformación**
 
+Se aplicaron las siguientes transformaciones:
+
+ Lookup
+ Data Conversion
+ Derived Column
+ Conditional Split
+**Carga**
+
+ Carga de información hacia:
+ 
+  Tablas de dimensiones
+  Tabla de hechos FactSales
+  Tablas staging
+
+**Manejo de Errores**
+
+El proyecto incluye:
+
+ Redirección de registros erróneos
+ Validación de datos
+ Control de integridad
+ Logs básicos de ejecución
+
+## Estructura del proyecto
+NorthWindETL/
+│
+├── ETL/
+│   ├── DimCustomers.dtsx
+│   ├── DimProducts.dtsx
+│   ├── DimEmployees.dtsx
+│   ├── FactSales.dtsx
+│   └── MasterETL.dtsx
+│
+├── ScriptsSQL/
+│   ├── OLTP.sql
+│   ├── DW.sql
+│   └── staging.sql
+│
+├── Evidencias/
+│   ├── controlflow.png
+│   ├── dataflow.png
+│   └── execution.png
+│
+└── README.md
+  
+##Instrucciones de Ejecución
+**1. Requisitos**
+
+Instalar:
+
+ SQL Server 2025
+ Visual Studio 2022
+ SSDT
+ SSIS
+
+**2. Configuración**
+ Restaurar o ejecutar los scripts OLTP y DW.
+ Abrir la solución SSIS en Visual Studio.
+ Configurar los Connection Managers.
+ Verificar conectividad con:
+  Base OLTP
+  Data Warehouse
+
+**3. Ejecución**
+ Ejecutar primero las dimensiones.
+ Ejecutar posteriormente FactSales.
+ Validar resultados en el DW.
+ 
+**Validaciones Realizadas**
+
+Se verificó:
+
+ Cantidad de registros cargados
+ Integridad referencial
+ Correspondencia entre OLTP y DW
+ Correcta ejecución de paquetes ETL
 
