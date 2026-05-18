@@ -33,6 +33,7 @@ El proyecto implementa una solución completa de base de datos para NorthWind, u
 - **17 claves foráneas**
 - **20 índices** para optimización
 - **8 check constraints** para validación de datos
+  
 **Tablas principales**
  - Customers
  - Orders
