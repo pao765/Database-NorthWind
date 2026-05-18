@@ -124,7 +124,7 @@ El proyecto incluye:
     │
     └── README.md
       
-##Instrucciones de Ejecución
+## Instrucciones de Ejecución
 **1. Requisitos**
 
 Instalar:
