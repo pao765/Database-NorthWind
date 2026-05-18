@@ -1,8 +1,8 @@
 # NorthWind - Base de Datos OLTP y Data Warehouse
 
  # Integrantes de grupo
-Paola Aleida Soto Choque
-Edgar Fausto Copa Lopez
+* Paola Aleida Soto Choque
+* Edgar Fausto Copa Lopez
 
 ##  Descripción
 El proyecto implementa una solución completa de base de datos para NorthWind, una empresa de ventas. La solución consta de dos componentes principales:
