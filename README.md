@@ -111,17 +111,12 @@ El proyecto incluye:
     │   ├── DimProducts.dtsx
     │   ├── DimEmployees.dtsx
     │   ├── FactSales.dtsx
-    │   └── MasterETL.dtsx
+    │   └── Package.dtsx
     │
     ├── ScriptsSQL/
     │   ├── OLTP.sql
     │   ├── DW.sql
     │   └── staging.sql
-    │
-    ├── Evidencias/
-    │   ├── controlflow.png
-    │   ├── dataflow.png
-    │   └── execution.png
     │
     └── README.md
       
