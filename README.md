@@ -65,10 +65,10 @@ El proyecto implementa una solución completa de base de datos para NorthWind, u
 ## Proyecto ETL (SSIS)
 
 **Herramientas utilizadas**
- SQL Server 2025
- SQL Server Integration Services (SSIS)
- SQL Server Data Tools (SSDT)
- Visual Studio 2022
+  -SQL Server 2025
+  -SQL Server Integration Services (SSIS)
+  -SQL Server Data Tools (SSDT)
+  -Visual Studio 2022
  
 ## Procesos ETL Implementados
 **Extracción**
