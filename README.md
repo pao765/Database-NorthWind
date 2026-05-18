@@ -101,27 +101,27 @@ El proyecto incluye:
  Logs básicos de ejecución
 
 ## Estructura del proyecto
-NorthWindETL/
-│
-├── ETL/
-│   ├── DimCustomers.dtsx
-│   ├── DimProducts.dtsx
-│   ├── DimEmployees.dtsx
-│   ├── FactSales.dtsx
-│   └── MasterETL.dtsx
-│
-├── ScriptsSQL/
-│   ├── OLTP.sql
-│   ├── DW.sql
-│   └── staging.sql
-│
-├── Evidencias/
-│   ├── controlflow.png
-│   ├── dataflow.png
-│   └── execution.png
-│
-└── README.md
-  
+    NorthWindETL/
+    │
+    ├── ETL/
+    │   ├── DimCustomers.dtsx
+    │   ├── DimProducts.dtsx
+    │   ├── DimEmployees.dtsx
+    │   ├── FactSales.dtsx
+    │   └── MasterETL.dtsx
+    │
+    ├── ScriptsSQL/
+    │   ├── OLTP.sql
+    │   ├── DW.sql
+    │   └── staging.sql
+    │
+    ├── Evidencias/
+    │   ├── controlflow.png
+    │   ├── dataflow.png
+    │   └── execution.png
+    │
+    └── README.md
+      
 ##Instrucciones de Ejecución
 **1. Requisitos**
 
