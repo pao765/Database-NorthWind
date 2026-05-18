@@ -1,19 +1,52 @@
-﻿
-create view Invoices AS
-SELECT Orders.ShipName, Orders.ShipAddress, Orders.ShipCity, Orders.ShipRegion, Orders.ShipPostalCode, 
-	Orders.ShipCountry, Orders.CustomerID, Customers.CompanyName AS CustomerName, Customers.Address, Customers.City, 
-	Customers.Region, Customers.PostalCode, Customers.Country, 
-	(FirstName + ' ' + LastName) AS Salesperson, 
-	Orders.OrderID, Orders.OrderDate, Orders.RequiredDate, Orders.ShippedDate, Shippers.CompanyName As ShipperName, 
-	"Order Details".ProductID, Products.ProductName, "Order Details".UnitPrice, "Order Details".Quantity, 
-	"Order Details".Discount, 
-	(CONVERT(money,("Order Details".UnitPrice*Quantity*(1-Discount)/100))*100) AS ExtendedPrice, Orders.Freight
-FROM 	Shippers INNER JOIN 
-		(Products INNER JOIN 
-			(
-				(Employees INNER JOIN 
-					(Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID) 
-				ON Employees.EmployeeID = Orders.EmployeeID) 
-			INNER JOIN "Order Details" ON Orders.OrderID = "Order Details".OrderID) 
-		ON Products.ProductID = "Order Details".ProductID) 
-	ON Shippers.ShipperID = Orders.ShipVia
+﻿CREATE VIEW [dbo].[Invoices] AS
+SELECT 
+    O.ShipName,
+    O.ShipAddress,
+    O.ShipCity,
+    O.ShipRegion,
+    O.ShipPostalCode,
+    O.ShipCountry,
+    O.CustomerID,
+
+    C.CompanyName AS CustomerName,
+    C.Address,
+    C.City,
+    C.Region,
+    C.PostalCode,
+    C.Country,
+
+    (E.FirstName + ' ' + E.LastName) AS Salesperson,
+
+    O.OrderID,
+    O.OrderDate,
+    O.RequiredDate,
+    O.ShippedDate,
+
+    S.CompanyName AS ShipperName,
+
+    OD.ProductID,
+    P.ProductName,
+    OD.UnitPrice,
+    OD.Quantity,
+    OD.Discount,
+
+    CONVERT(MONEY, (OD.UnitPrice * OD.Quantity * (1 - OD.Discount))) AS ExtendedPrice,
+
+    O.Freight
+
+FROM [dbo].[Orders] O
+
+INNER JOIN [dbo].[Customers] C
+    ON C.CustomerID = O.CustomerID
+
+INNER JOIN [dbo].[Employees] E
+    ON E.EmployeeID = O.EmployeeID
+
+INNER JOIN [dbo].[Shippers] S
+    ON S.ShipperID = O.ShipVia
+
+INNER JOIN [dbo].[OrderDetails] OD
+    ON O.OrderID = OD.OrderID
+
+INNER JOIN [dbo].[Products] P
+    ON P.ProductID = OD.ProductID;

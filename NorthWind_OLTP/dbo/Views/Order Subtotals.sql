@@ -1,5 +1,11 @@
-﻿
-create view "Order Subtotals" AS
-SELECT "Order Details".OrderID, Sum(CONVERT(money,("Order Details".UnitPrice*Quantity*(1-Discount)/100))*100) AS Subtotal
-FROM "Order Details"
-GROUP BY "Order Details".OrderID
+﻿CREATE VIEW [dbo].[Order Subtotals] AS
+SELECT 
+    OD.OrderID,
+
+    SUM(
+        CONVERT(MONEY, (OD.UnitPrice * OD.Quantity * (1 - OD.Discount)))
+    ) AS Subtotal
+
+FROM [dbo].[OrderDetails] OD
+
+GROUP BY OD.OrderID;

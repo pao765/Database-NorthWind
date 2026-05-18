@@ -8,7 +8,7 @@ END
 
 SELECT ProductName,
 	TotalPurchase=ROUND(SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)), 0)
-FROM [Order Details] OD, Orders O, Products P, Categories C
+FROM [OrderDetails] OD, Orders O, Products P, Categories C
 WHERE OD.OrderID = O.OrderID 
 	AND OD.ProductID = P.ProductID 
 	AND P.CategoryID = C.CategoryID

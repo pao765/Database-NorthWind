@@ -6,5 +6,5 @@ SELECT ProductName,
     Quantity,
     Discount=CONVERT(int, Discount * 100), 
     ExtendedPrice=ROUND(CONVERT(money, Quantity * (1 - Discount) * Od.UnitPrice), 2)
-FROM Products P, [Order Details] Od
+FROM Products P, [OrderDetails] Od
 WHERE Od.ProductID = P.ProductID and Od.OrderID = @OrderID
