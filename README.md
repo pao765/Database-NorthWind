@@ -50,6 +50,7 @@ El proyecto implementa una solución completa de base de datos para NorthWind, u
 - **6 tablas de dimensión**: DimDate, DimCustomer, DimEmployee, DimProduct, DimGeography, DimShipper
 - **1 tabla de hechos**: FactSales
 - **5 relaciones** (claves foráneas desde la tabla de hechos hacia las dimensiones)
+  
 **Tablas de demensiones**
  -DimDate
  -DimCustomer
@@ -57,6 +58,7 @@ El proyecto implementa una solución completa de base de datos para NorthWind, u
  -DimProduct
  -DimGeography
  -DimShipper
+ 
 **Tablas de hechos**
  -FactSales
   
