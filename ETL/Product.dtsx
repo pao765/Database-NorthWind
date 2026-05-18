@@ -1,50 +1,50 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="5/16/2026 3:40:35 AM"
+  DTS:CreationDate="5/18/2026 11:23:55 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LAPTOP-0GO03A3B"
   DTS:CreatorName="LAPTOP-0GO03A3B\Paola Soto"
-  DTS:DTSID="{5B24D65E-DB28-4F82-8771-A97C6BC6C3E4}"
+  DTS:DTSID="{BBD5F731-6DEC-4140-9534-04F46F410F67}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="3082"
-  DTS:ObjectName="Shipper"
+  DTS:ObjectName="Product"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{1836C748-D2B7-4C75-A2EE-448FF78B6452}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{CEED475E-B2FD-435A-8D07-695B83A16C79}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Source.NorthWind]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{E3213E72-632F-4B33-AFA7-309FCDB11F33}"
+      DTS:DTSID="{B8F5BCBD-DC57-4624-A78E-F90F2F2ADE11}"
       DTS:ObjectName="Source.NorthWind">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LAPTOP-0GO03A3B;Initial Catalog=NorthWind;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Sales-{E3213E72-632F-4B33-AFA7-309FCDB11F33}LAPTOP-0GO03A3B.NorthWind;" />
+          DTS:ConnectionString="Data Source=LAPTOP-0GO03A3B;Initial Catalog=NorthWind;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Product-{B8F5BCBD-DC57-4624-A78E-F90F2F2ADE11}LAPTOP-0GO03A3B.NorthWind;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Target.NorthWind_DW]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{6A73E475-CFA4-4C85-8591-685166F735E2}"
+      DTS:DTSID="{C7EBE4B2-70B8-4CD1-A9F0-4F9AC5A6F5E4}"
       DTS:ObjectName="Target.NorthWind_DW">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LAPTOP-0GO03A3B;Initial Catalog=NorthWind_DW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Sales-{6A73E475-CFA4-4C85-8591-685166F735E2}LAPTOP-0GO03A3B.NorthWind_DW;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=LAPTOP-0GO03A3B;Initial Catalog=NorthWind_DW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Product-{C7EBE4B2-70B8-4CD1-A9F0-4F9AC5A6F5E4}LAPTOP-0GO03A3B.NorthWind_DW;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{52C8C224-D775-4089-A886-38B5F1130435}"
+      DTS:DTSID="{F00338E0-6F4B-476E-BC22-EC06404479E2}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dbts">
@@ -53,7 +53,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{01513772-8C90-4C43-9BC5-3F042A1837BD}"
+      DTS:DTSID="{05133CDE-5EF5-4B2B-A2AD-8856D5CC3560}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="LastRowVersion">
@@ -63,36 +63,36 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Clean-up staging"
+      DTS:refId="Package\Clean-up Staging"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{F75FE551-BB56-4831-810A-4313C2A5F15C}"
+      DTS:DTSID="{8E8D6FC7-863E-45B6-A93C-0CBB831A32CC}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Clean-up staging"
+      DTS:ObjectName="Clean-up Staging"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6A73E475-CFA4-4C85-8591-685166F735E2}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE [staging].[shipper];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{C7EBE4B2-70B8-4CD1-A9F0-4F9AC5A6F5E4}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [staging].[product]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Get Database Rowversion"
+      DTS:refId="Package\Get database Rowversion"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{2DB5337F-299E-4866-94BE-BD314022FBB0}"
+      DTS:DTSID="{86E59670-7D56-44D9-AAF0-762B9F21779E}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Get Database Rowversion"
+      DTS:ObjectName="Get database Rowversion"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{E3213E72-632F-4B33-AFA7-309FCDB11F33}"
+          SQLTask:Connection="{B8F5BCBD-DC57-4624-A78E-F90F2F2ADE11}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[GetDatabaseRowVersion]"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -105,7 +105,7 @@
       DTS:refId="Package\Get LastRowVersion"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{1F010AA4-CC5A-491D-B23B-31EFDA52C294}"
+      DTS:DTSID="{D3E42B10-4642-4B54-B5A1-096ABF32A569}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LastRowVersion"
@@ -114,8 +114,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6A73E475-CFA4-4C85-8591-685166F735E2}"
-          SQLTask:SqlStatementSource="EXECUTE  [dbo].[GetLastPackageRowVersion] @tableName = 'shipper'"
+          SQLTask:Connection="{C7EBE4B2-70B8-4CD1-A9F0-4F9AC5A6F5E4}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] &#xA;   @tableName = 'product'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LastRowVersion"
@@ -124,13 +124,13 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Load Shipper"
+      DTS:refId="Package\Load Product"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{94EE1044-ECE3-492A-8B91-923E8797DFC8}"
+      DTS:DTSID="{683F5952-50CC-4676-AB81-B9825B1AE6B0}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Load Shipper"
+      DTS:ObjectName="Load Product"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -138,7 +138,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Load Shipper\Búsqueda"
+              refId="Package\Load Product\Búsqueda"
               componentClassID="Microsoft.Lookup"
               contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
               description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
@@ -151,14 +151,14 @@
                   description="Especifica la instrucción SQL que genera la tabla de búsqueda."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimShipper]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimProduct]</property>
                 <property
                   dataType="System.String"
                   description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimShipper]) [refTable]
-where [refTable].[ShipperSK] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimProduct]) [refTable]
+where [refTable].[ProductID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
@@ -189,12 +189,12 @@ where [refTable].[ShipperSK] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ShipperSK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ShipperID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CompanyName" dataType="DT_WSTR" length="40" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Phone" dataType="DT_WSTR" length="24" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductSK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductName" dataType="DT_WSTR" length="40" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CategoryName" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SupplierName" dataType="DT_WSTR" length="40" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="QuantityPerUnit" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UnitPrice" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Discontinued" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
-                  name="ParameterMap">#{Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[ShipperID]};</property>
+                  name="ParameterMap">#{Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ProductID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -206,7 +206,7 @@ where [refTable].[ShipperSK] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Shipper\Búsqueda.Connections[OleDbConnection]"
+                  refId="Package\Load Product\Búsqueda.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Target.NorthWind_DW]"
                   connectionManagerRefId="Package.ConnectionManagers[Target.NorthWind_DW]"
                   description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
@@ -214,19 +214,19 @@ where [refTable].[ShipperSK] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load Shipper\Búsqueda.Inputs[Entrada de búsqueda]"
+                  refId="Package\Load Product\Búsqueda.Inputs[Entrada de búsqueda]"
                   name="Entrada de búsqueda">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Shipper\Búsqueda.Inputs[Entrada de búsqueda].Columns[ShipperID]"
+                      refId="Package\Load Product\Búsqueda.Inputs[Entrada de búsqueda].Columns[ProductID]"
                       cachedDataType="i4"
-                      cachedName="ShipperID"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[ShipperID]">
+                      cachedName="ProductID"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ProductID]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia con la que se combina una columna."
-                          name="JoinToReferenceColumn">ShipperSK</property>
+                          name="JoinToReferenceColumn">ProductID</property>
                         <property
                           dataType="System.Null"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
@@ -239,54 +239,54 @@ where [refTable].[ShipperSK] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Shipper\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  refId="Package\Load Product\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
                   errorOrTruncationOperation="Búsqueda"
                   exclusionGroup="1"
                   name="Salida de entradas coincidentes de búsqueda"
-                  synchronousInputId="Package\Load Shipper\Búsqueda.Inputs[Entrada de búsqueda]">
+                  synchronousInputId="Package\Load Product\Búsqueda.Inputs[Entrada de búsqueda]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Shipper\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ShipperSK]"
+                      refId="Package\Load Product\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ProductSK]"
                       dataType="i4"
                       errorOrTruncationOperation="Copiar columna"
-                      lineageId="Package\Load Shipper\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ShipperSK]"
-                      name="ShipperSK"
+                      lineageId="Package\Load Product\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ProductSK]"
+                      name="ProductSK"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
-                          name="CopyFromReferenceColumn">ShipperSK</property>
+                          name="CopyFromReferenceColumn">ProductSK</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load Shipper\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  refId="Package\Load Product\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
                   description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
                   exclusionGroup="1"
                   name="Salida de entradas no coincidentes de búsqueda"
-                  synchronousInputId="Package\Load Shipper\Búsqueda.Inputs[Entrada de búsqueda]">
+                  synchronousInputId="Package\Load Product\Búsqueda.Inputs[Entrada de búsqueda]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load Shipper\Búsqueda.Outputs[Salida de error de búsqueda]"
+                  refId="Package\Load Product\Búsqueda.Outputs[Salida de error de búsqueda]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de búsqueda"
-                  synchronousInputId="Package\Load Shipper\Búsqueda.Inputs[Entrada de búsqueda]">
+                  synchronousInputId="Package\Load Product\Búsqueda.Inputs[Entrada de búsqueda]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Shipper\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      refId="Package\Load Product\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Shipper\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      lineageId="Package\Load Product\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Shipper\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      refId="Package\Load Product\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Shipper\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      lineageId="Package\Load Product\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -295,11 +295,11 @@ where [refTable].[ShipperSK] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load Shipper\Get Shippers"
+              refId="Package\Load Product\Get Product"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
-              name="Get Shippers"
+              name="Get Product"
               usesDispositions="true"
               version="7">
               <properties>
@@ -319,7 +319,8 @@ where [refTable].[ShipperSK] = ?</property>
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXECUTE [dbo].[GetShipperChangesByRowVersion] @startRow = ? ,@endRow = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXECUTE [dbo].[GetProductChangesByRowVersion] 
+   @startRow = ?  ,@endRow = ?</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -340,11 +341,11 @@ where [refTable].[ShipperSK] = ?</property>
                 <property
                   dataType="System.String"
                   description="Asignaciones entre los parámetros del comando SQL y las variables."
-                  name="ParameterMapping">"@startRow:Input",{01513772-8C90-4C43-9BC5-3F042A1837BD};"@endRow:Input",{52C8C224-D775-4089-A886-38B5F1130435};</property>
+                  name="ParameterMapping">"@startRow:Input",{05133CDE-5EF5-4B2B-A2AD-8856D5CC3560};"@endRow:Input",{F00338E0-6F4B-476E-BC22-EC06404479E2};</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Shipper\Get Shippers.Connections[OleDbConnection]"
+                  refId="Package\Load Product\Get Product.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Source.NorthWind]"
                   connectionManagerRefId="Package.ConnectionManagers[Source.NorthWind]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -352,110 +353,221 @@ where [refTable].[ShipperSK] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[ShipperID]"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ProductID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].ExternalColumns[ShipperID]"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[ShipperID]"
-                      name="ShipperID"
+                      externalMetadataColumnId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductID]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ProductID]"
+                      name="ProductID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[CompanyName]"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ProductName]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].ExternalColumns[CompanyName]"
+                      externalMetadataColumnId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductName]"
                       length="40"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[CompanyName]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ProductName]"
+                      name="ProductName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[CompanyName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[CompanyName]"
+                      length="40"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[CompanyName]"
                       name="CompanyName"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[Phone]"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[CategoryName]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].ExternalColumns[Phone]"
-                      length="24"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[Phone]"
-                      name="Phone"
+                      externalMetadataColumnId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[CategoryName]"
+                      length="15"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[CategoryName]"
+                      name="CategoryName"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[rowversion]"
-                      dataType="bytes"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[QuantityPerUnit]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].ExternalColumns[rowversion]"
-                      length="8"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[rowversion]"
-                      name="rowversion"
+                      externalMetadataColumnId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[QuantityPerUnit]"
+                      length="20"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[QuantityPerUnit]"
+                      name="QuantityPerUnit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[UnitPrice]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[UnitsInStock]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[UnitsInStock]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[UnitsInStock]"
+                      name="UnitsInStock"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[UnitsOnOrder]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[UnitsOnOrder]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[UnitsOnOrder]"
+                      name="UnitsOnOrder"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ReorderLevel]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[ReorderLevel]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ReorderLevel]"
+                      name="ReorderLevel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[Discontinued]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[Discontinued]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[Discontinued]"
+                      name="Discontinued"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].ExternalColumns[ShipperID]"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductID]"
                       dataType="i4"
-                      name="ShipperID" />
+                      name="ProductID" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].ExternalColumns[CompanyName]"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[CompanyName]"
                       dataType="wstr"
                       length="40"
                       name="CompanyName" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].ExternalColumns[Phone]"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[CategoryName]"
                       dataType="wstr"
-                      length="24"
-                      name="Phone" />
+                      length="15"
+                      name="CategoryName" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].ExternalColumns[rowversion]"
-                      dataType="bytes"
-                      length="8"
-                      name="rowversion" />
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[QuantityPerUnit]"
+                      dataType="wstr"
+                      length="20"
+                      name="QuantityPerUnit" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[UnitsInStock]"
+                      dataType="i2"
+                      name="UnitsInStock" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[UnitsOnOrder]"
+                      dataType="i2"
+                      name="UnitsOnOrder" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[ReorderLevel]"
+                      dataType="i2"
+                      name="ReorderLevel" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].ExternalColumns[Discontinued]"
+                      dataType="bool"
+                      name="Discontinued" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[ShipperID]"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[ProductID]"
                       dataType="i4"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[ShipperID]"
-                      name="ShipperID" />
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[ProductID]"
+                      name="ProductID" />
                     <outputColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[CompanyName]"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[ProductName]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[CompanyName]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[ProductName]"
+                      name="ProductName" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[CompanyName]"
                       name="CompanyName" />
                     <outputColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[Phone]"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[CategoryName]"
                       dataType="wstr"
-                      length="24"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[Phone]"
-                      name="Phone" />
+                      length="15"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[CategoryName]"
+                      name="CategoryName" />
                     <outputColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[rowversion]"
-                      dataType="bytes"
-                      length="8"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[rowversion]"
-                      name="rowversion" />
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[QuantityPerUnit]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[QuantityPerUnit]"
+                      name="QuantityPerUnit" />
                     <outputColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[UnitPrice]"
+                      name="UnitPrice" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[UnitsInStock]"
+                      dataType="i2"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[UnitsInStock]"
+                      name="UnitsInStock" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[UnitsOnOrder]"
+                      dataType="i2"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[UnitsOnOrder]"
+                      name="UnitsOnOrder" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[ReorderLevel]"
+                      dataType="i2"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[ReorderLevel]"
+                      name="ReorderLevel" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[Discontinued]"
+                      dataType="bool"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[Discontinued]"
+                      name="Discontinued" />
+                    <outputColumn
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -464,11 +576,11 @@ where [refTable].[ShipperSK] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load Shipper\Load dim"
+              refId="Package\Load Product\Load Dim"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="Load dim"
+              name="Load Dim"
               usesDispositions="true"
               version="4">
               <properties>
@@ -479,7 +591,7 @@ where [refTable].[ShipperSK] = ?</property>
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[dbo].[DimShipper]</property>
+                  name="OpenRowset">[dbo].[DimProduct]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -521,7 +633,7 @@ where [refTable].[ShipperSK] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Shipper\Load dim.Connections[OleDbConnection]"
+                  refId="Package\Load Product\Load Dim.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Target.NorthWind_DW]"
                   connectionManagerRefId="Package.ConnectionManagers[Target.NorthWind_DW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -529,74 +641,111 @@ where [refTable].[ShipperSK] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB].Columns[ShipperID]"
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].Columns[ProductID]"
                       cachedDataType="i4"
-                      cachedName="ShipperID"
-                      externalMetadataColumnId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipperID]"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[ShipperID]" />
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductID]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ProductID]" />
                     <inputColumn
-                      refId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB].Columns[CompanyName]"
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].Columns[ProductName]"
                       cachedDataType="wstr"
                       cachedLength="40"
-                      cachedName="CompanyName"
-                      externalMetadataColumnId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[CompanyName]"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[CompanyName]" />
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductName]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ProductName]" />
                     <inputColumn
-                      refId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB].Columns[Phone]"
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].Columns[CategoryName]"
                       cachedDataType="wstr"
-                      cachedLength="24"
-                      cachedName="Phone"
-                      externalMetadataColumnId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[Phone]"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[Phone]" />
+                      cachedLength="15"
+                      cachedName="CategoryName"
+                      externalMetadataColumnId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[CategoryName]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[CategoryName]" />
+                    <inputColumn
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].Columns[QuantityPerUnit]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="QuantityPerUnit"
+                      externalMetadataColumnId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[QuantityPerUnit]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[QuantityPerUnit]" />
+                    <inputColumn
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[UnitPrice]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].Columns[Discontinued]"
+                      cachedDataType="bool"
+                      cachedName="Discontinued"
+                      externalMetadataColumnId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[Discontinued]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[Discontinued]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipperSK]"
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductSK]"
                       dataType="i4"
-                      name="ShipperSK" />
+                      name="ProductSK" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipperID]"
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductID]"
                       dataType="i4"
-                      name="ShipperID" />
+                      name="ProductID" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[CompanyName]"
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductName]"
                       dataType="wstr"
                       length="40"
-                      name="CompanyName" />
+                      name="ProductName" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[Phone]"
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[CategoryName]"
                       dataType="wstr"
-                      length="24"
-                      name="Phone" />
+                      length="15"
+                      name="CategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[SupplierName]"
+                      dataType="wstr"
+                      length="40"
+                      name="SupplierName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[QuantityPerUnit]"
+                      dataType="wstr"
+                      length="20"
+                      name="QuantityPerUnit" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB].ExternalColumns[Discontinued]"
+                      dataType="bool"
+                      name="Discontinued" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Shipper\Load dim.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\Load Product\Load Dim.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Shipper\Load dim.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Load Product\Load Dim.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Shipper\Load dim.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Load Product\Load Dim.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Shipper\Load dim.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Load Product\Load Dim.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Shipper\Load dim.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Load Product\Load Dim.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -605,7 +754,7 @@ where [refTable].[ShipperSK] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load Shipper\Load staging"
+              refId="Package\Load Product\Load staging"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
@@ -620,7 +769,7 @@ where [refTable].[ShipperSK] = ?</property>
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[staging].[shipper]</property>
+                  name="OpenRowset">[staging].[product]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -662,7 +811,7 @@ where [refTable].[ShipperSK] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Shipper\Load staging.Connections[OleDbConnection]"
+                  refId="Package\Load Product\Load staging.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Target.NorthWind_DW]"
                   connectionManagerRefId="Package.ConnectionManagers[Target.NorthWind_DW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -670,74 +819,111 @@ where [refTable].[ShipperSK] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB].Columns[CompanyName]"
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductID]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].Columns[ProductName]"
                       cachedDataType="wstr"
                       cachedLength="40"
-                      cachedName="CompanyName"
-                      externalMetadataColumnId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[CompanyName]"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[CompanyName]" />
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductName]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[ProductName]" />
                     <inputColumn
-                      refId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB].Columns[Phone]"
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].Columns[CategoryName]"
                       cachedDataType="wstr"
-                      cachedLength="24"
-                      cachedName="Phone"
-                      externalMetadataColumnId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[Phone]"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[Phone]" />
+                      cachedLength="15"
+                      cachedName="CategoryName"
+                      externalMetadataColumnId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[CategoryName]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[CategoryName]" />
                     <inputColumn
-                      refId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB].Columns[ShipperID]"
-                      cachedDataType="i4"
-                      cachedName="ShipperID"
-                      externalMetadataColumnId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipperID]"
-                      lineageId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB].Columns[ShipperID]" />
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].Columns[QuantityPerUnit]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="QuantityPerUnit"
+                      externalMetadataColumnId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[QuantityPerUnit]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[QuantityPerUnit]" />
+                    <inputColumn
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[UnitPrice]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].Columns[Discontinued]"
+                      cachedDataType="bool"
+                      cachedName="Discontinued"
+                      externalMetadataColumnId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[Discontinued]"
+                      lineageId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB].Columns[Discontinued]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipperSK]"
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductSK]"
                       dataType="i4"
-                      name="ShipperSK" />
+                      name="ProductSK" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[ShipperID]"
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductID]"
                       dataType="i4"
-                      name="ShipperID" />
+                      name="ProductID" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[CompanyName]"
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductName]"
                       dataType="wstr"
                       length="40"
-                      name="CompanyName" />
+                      name="ProductName" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[Phone]"
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[CategoryName]"
                       dataType="wstr"
-                      length="24"
-                      name="Phone" />
+                      length="15"
+                      name="CategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[SupplierName]"
+                      dataType="wstr"
+                      length="40"
+                      name="SupplierName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[QuantityPerUnit]"
+                      dataType="wstr"
+                      length="20"
+                      name="QuantityPerUnit" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[Discontinued]"
+                      dataType="bool"
+                      name="Discontinued" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Shipper\Load staging.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\Load Product\Load staging.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Shipper\Load staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Load Product\Load staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Shipper\Load staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Load Product\Load staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Shipper\Load staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Load Product\Load staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Shipper\Load staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Load Product\Load staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -748,46 +934,46 @@ where [refTable].[ShipperSK] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Load Shipper.Paths[Salida de entradas coincidentes de búsqueda]"
-              endId="Package\Load Shipper\Load staging.Inputs[Entrada de destino de OLE DB]"
+              refId="Package\Load Product.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Load Product\Load staging.Inputs[Entrada de destino de OLE DB]"
               name="Salida de entradas coincidentes de búsqueda"
-              startId="Package\Load Shipper\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
+              startId="Package\Load Product\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
-              refId="Package\Load Shipper.Paths[Salida de entradas no coincidentes de búsqueda]"
-              endId="Package\Load Shipper\Load dim.Inputs[Entrada de destino de OLE DB]"
+              refId="Package\Load Product.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Load Product\Load Dim.Inputs[Entrada de destino de OLE DB]"
               name="Salida de entradas no coincidentes de búsqueda"
-              startId="Package\Load Shipper\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+              startId="Package\Load Product\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
-              refId="Package\Load Shipper.Paths[Salida de origen de OLE DB]"
-              endId="Package\Load Shipper\Búsqueda.Inputs[Entrada de búsqueda]"
+              refId="Package\Load Product.Paths[Salida de origen de OLE DB]"
+              endId="Package\Load Product\Búsqueda.Inputs[Entrada de búsqueda]"
               name="Salida de origen de OLE DB"
-              startId="Package\Load Shipper\Get Shippers.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\Load Product\Get Product.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Syn-Staging"
+      DTS:refId="Package\Syn staging"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{09B02E49-422E-441F-9D93-B8C05EF9AC2D}"
+      DTS:DTSID="{248EBB58-2A10-4B04-9543-E653581D411B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Syn-Staging"
+      DTS:ObjectName="Syn staging"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6A73E475-CFA4-4C85-8591-685166F735E2}"
-          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimShipper]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{C7EBE4B2-70B8-4CD1-A9F0-4F9AC5A6F5E4}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimProduct]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Update config"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{BF276A06-7057-45F0-A672-480010E9BE64}"
+      DTS:DTSID="{B741807C-A6B1-409A-BA61-4F5D76FEDC3E}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update config"
@@ -796,8 +982,8 @@ where [refTable].[ShipperSK] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6A73E475-CFA4-4C85-8591-685166F735E2}"
-          SQLTask:SqlStatementSource="EXECUTE  [dbo].[UpdateLastPackageRowVersion] @tableName = 'shipper' ,@lastRowVersion = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:Connection="{C7EBE4B2-70B8-4CD1-A9F0-4F9AC5A6F5E4}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[UpdateLastPackageRowVersion] &#xA;   @tableName = 'product'&#xA;  ,@lastRowVersion = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::dbts"
@@ -812,40 +998,40 @@ where [refTable].[ShipperSK] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
-      DTS:DTSID="{4B67FAE4-DDEE-4C2E-8050-EF781EEBA21B}"
-      DTS:From="Package\Get Database Rowversion"
+      DTS:DTSID="{AAF5CA25-AC3D-4C1E-8F5E-1CD05EC33EAA}"
+      DTS:From="Package\Get database Rowversion"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
       DTS:To="Package\Get LastRowVersion" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
       DTS:CreationName=""
-      DTS:DTSID="{40700C4D-D16F-4D1C-ADA3-B74385904A71}"
+      DTS:DTSID="{66A4ABA1-626C-4983-A92B-7138CCABEECE}"
       DTS:From="Package\Get LastRowVersion"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 1"
-      DTS:To="Package\Clean-up staging" />
+      DTS:To="Package\Clean-up Staging" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
       DTS:CreationName=""
-      DTS:DTSID="{BBA46860-2784-4822-9AA0-9C0DB3A81F3B}"
-      DTS:From="Package\Clean-up staging"
+      DTS:DTSID="{D612A048-8F71-439C-8254-C1507C713AA7}"
+      DTS:From="Package\Clean-up Staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 2"
-      DTS:To="Package\Load Shipper" />
+      DTS:To="Package\Load Product" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
       DTS:CreationName=""
-      DTS:DTSID="{65A8C749-761E-4BF3-84C0-EC31ED9CCC2E}"
-      DTS:From="Package\Load Shipper"
+      DTS:DTSID="{AD9A03C3-6E28-4153-BD79-F38363198EB2}"
+      DTS:From="Package\Load Product"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 3"
-      DTS:To="Package\Syn-Staging" />
+      DTS:To="Package\Syn staging" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
       DTS:CreationName=""
-      DTS:DTSID="{1F6A5752-524C-4DB7-A601-03253E1FF95F}"
-      DTS:From="Package\Syn-Staging"
+      DTS:DTSID="{9FF477C5-D65F-4E70-8C75-5C9DB06CCEFA}"
+      DTS:From="Package\Syn staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 4"
       DTS:To="Package\Update config" />
@@ -863,43 +1049,55 @@ where [refTable].[ShipperSK] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\Clean-up staging"
-          TopLeft="304.285714933459,199.588235119171" />
-        <NodeLayout
-          Size="199.2,41.6"
-          Id="Package\Get Database Rowversion"
-          TopLeft="289.785714890884,20.7941176336529" />
+          Size="197.6,41.6"
+          Id="Package\Get database Rowversion"
+          TopLeft="309.285714944102,36.7058823207671" />
         <NodeLayout
           Size="172,41.6"
           Id="Package\Get LastRowVersion"
-          TopLeft="306.428572080878,122.352941069224" />
+          TopLeft="308.571429228296,129.99999988605" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Clean-up Staging"
+          TopLeft="320.000000681196,240.882352730034" />
         <NodeLayout
           Size="140,41.6"
-          Id="Package\Load Shipper"
-          TopLeft="309.821429230957,288.676470335199" />
+          Id="Package\Load Product"
+          TopLeft="322.142857828615,345.647058520556" />
         <NodeLayout
-          Size="134.4,41.6"
-          Id="Package\Syn-Staging"
-          TopLeft="291.071429191043,373.749999672394" />
+          Size="132.8,41.6"
+          Id="Package\Syn staging"
+          TopLeft="326.428572123452,432.823529032378" />
         <NodeLayout
           Size="144,41.6"
           Id="Package\Update config"
-          TopLeft="284.821429177739,447.485293785013" />
+          TopLeft="330.71428641829,510.341176028864" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="390.907143485881,62.3941176336529">
+          TopLeft="408.085714944102,78.3058823207671">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9588234355706"
+              EndConnector="-13.5142857158062,51.6941175652829"
               Start="0,0"
-              End="0,52.4588234355706">
+              End="-13.5142857158062,44.1941175652829">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4588234355706" />
+                    End="0,21.8470587826415" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8470587826415"
+                    Point2="0,25.8470587826415"
+                    Point3="-4,25.8470587826415" />
+                  <mssgle:LineSegment
+                    End="-9.51428571580624,25.8470587826415" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.51428571580624,25.8470587826415"
+                    Point2="-13.5142857158062,25.8470587826415"
+                    Point3="-13.5142857158062,29.8470587826415" />
+                  <mssgle:LineSegment
+                    End="-13.5142857158062,44.1941175652829" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -910,30 +1108,18 @@ where [refTable].[ShipperSK] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="392.428572080878,163.952941069224">
+          TopLeft="396.885714954746,171.59999988605">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.34285714741884,35.6352940499473"
+              EndConnector="0,69.2823528439838"
               Start="0,0"
-              End="-9.34285714741884,28.1352940499473">
+              End="0,61.7823528439838">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.8176470249736" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.8176470249736"
-                    Point2="0,17.8176470249736"
-                    Point3="-4,17.8176470249736" />
-                  <mssgle:LineSegment
-                    End="-5.34285714741884,17.8176470249736" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.34285714741884,17.8176470249736"
-                    Point2="-9.34285714741884,17.8176470249736"
-                    Point3="-9.34285714741884,21.8176470249736" />
-                  <mssgle:LineSegment
-                    End="-9.34285714741884,28.1352940499473" />
+                    End="0,61.7823528439838" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -944,18 +1130,18 @@ where [refTable].[ShipperSK] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="381.453572082208,241.188235119171">
+          TopLeft="395.671429254905,282.482352730034">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47.488235216028"
+              EndConnector="0,63.1647057905227"
               Start="0,0"
-              End="0,39.988235216028">
+              End="0,55.6647057905227">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.988235216028" />
+                    End="0,55.6647057905227" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -966,30 +1152,18 @@ where [refTable].[ShipperSK] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="379.821429230957,330.276470335199">
+          TopLeft="392.485714976033,387.247058520556">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-21.550000039914,43.473529337195"
+              EndConnector="0,45.5764705118216"
               Start="0,0"
-              End="-21.550000039914,35.973529337195">
+              End="0,38.0764705118216">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.7367646685975" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.7367646685975"
-                    Point2="0,21.7367646685975"
-                    Point3="-4,21.7367646685975" />
-                  <mssgle:LineSegment
-                    End="-17.550000039914,21.7367646685975" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-17.550000039914,21.7367646685975"
-                    Point2="-21.550000039914,21.7367646685975"
-                    Point3="-21.550000039914,25.7367646685975" />
-                  <mssgle:LineSegment
-                    End="-21.550000039914,35.973529337195" />
+                    End="0,38.0764705118216" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1000,18 +1174,30 @@ where [refTable].[ShipperSK] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="357.546429184391,415.349999672394">
+          TopLeft="392.828572123452,474.423529032378">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32.1352941126198"
+              EndConnector="9.88571429483744,35.9176469964861"
               Start="0,0"
-              End="0,24.6352941126198">
+              End="9.88571429483744,28.4176469964861">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.6352941126198" />
+                    End="0,13.958823498243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.958823498243"
+                    Point2="0,17.958823498243"
+                    Point3="4,17.958823498243" />
+                  <mssgle:LineSegment
+                    End="5.88571429483744,17.958823498243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.88571429483744,17.958823498243"
+                    Point2="9.88571429483744,17.958823498243"
+                    Point3="9.88571429483744,21.958823498243" />
+                  <mssgle:LineSegment
+                    End="9.88571429483744,28.4176469964861" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1024,40 +1210,52 @@ where [refTable].[ShipperSK] = ?</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Load Shipper">
+    design-time-name="Package\Load Product">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\Load Shipper\Get Shippers"
-          TopLeft="390.714286546014,27.5294117405753" />
-        <NodeLayout
-          Size="121.6,41.6"
-          Id="Package\Load Shipper\Load dim"
-          TopLeft="618.571429888204,210.776470443451" />
+          Size="133.6,41.6"
+          Id="Package\Load Product\Get Product"
+          TopLeft="315.000000670552,56.5882352445159" />
         <NodeLayout
           Size="124,41.6"
-          Id="Package\Load Shipper\Búsqueda"
-          TopLeft="403.571429430526,111.647058725666" />
+          Id="Package\Load Product\Búsqueda"
+          TopLeft="335.714286428933,157.529411626625" />
         <NodeLayout
           Size="138.4,41.6"
-          Id="Package\Load Shipper\Load staging"
-          TopLeft="123.57142883448,206.470588054314" />
+          Id="Package\Load Product\Load staging"
+          TopLeft="145.714286024473,305.117646791376" />
+        <NodeLayout
+          Size="123.2,41.6"
+          Id="Package\Load Product\Load Dim"
+          TopLeft="567.142858350155,314.294117371568" />
         <EdgeLayout
-          Id="Package\Load Shipper.Paths[Salida de origen de OLE DB]"
-          TopLeft="462.74285798827,69.1294117405753">
+          Id="Package\Load Product.Paths[Salida de origen de OLE DB]"
+          TopLeft="381.800000670552,98.1882352445159">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.5176469850912"
+              EndConnector="15.9142857583811,59.3411763821094"
               Start="0,0"
-              End="0,35.0176469850912">
+              End="15.9142857583811,51.8411763821094">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.0176469850912" />
+                    End="0,25.6705881910547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.6705881910547"
+                    Point2="0,29.6705881910547"
+                    Point3="4,29.6705881910547" />
+                  <mssgle:LineSegment
+                    End="11.9142857583811,29.6705881910547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.9142857583811,29.6705881910547"
+                    Point2="15.9142857583811,29.6705881910547"
+                    Point3="15.9142857583811,33.6705881910547" />
+                  <mssgle:LineSegment
+                    End="15.9142857583811,51.8411763821094" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1067,74 +1265,74 @@ where [refTable].[ShipperSK] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Shipper.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="484.904762763859,153.247058725666">
+          Id="Package\Load Product.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="378.3809530956,199.129411626625">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="194.466667124345,57.5294117177855"
+              EndConnector="-163.466667071127,105.988235164751"
               Start="0,0"
-              End="194.466667124345,50.0294117177855">
+              End="-163.466667071127,98.4882351647509">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.4514799359125" />
+                    End="0,39.2053952263953" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.4514799359125"
-                    Point2="0,23.4514799359125"
-                    Point3="4,23.4514799359125" />
+                    Point1="0,39.2053952263953"
+                    Point2="0,43.2053952263953"
+                    Point3="-4,43.2053952263953" />
                   <mssgle:LineSegment
-                    End="190.466667124345,23.4514799359125" />
+                    End="-159.466667071127,43.2053952263953" />
                   <mssgle:CubicBezierSegment
-                    Point1="190.466667124345,23.4514799359125"
-                    Point2="194.466667124345,23.4514799359125"
-                    Point3="194.466667124345,27.4514799359125" />
+                    Point1="-159.466667071127,43.2053952263953"
+                    Point2="-163.466667071127,43.2053952263953"
+                    Point3="-163.466667071127,47.2053952263953" />
                   <mssgle:LineSegment
-                    End="194.466667124345,50.0294117177855" />
+                    End="-163.466667071127,98.4882351647509" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-9.65568987532758,28.4514799359125,213.778046875,12.1953125"
+              BoundingBox="-181.552356973063,48.2053952263953,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Shipper.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="446.238096097193,153.247058725666">
+          Id="Package\Load Product.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="417.047619762267,199.129411626625">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-253.466667262713,53.2235293286483"
+              EndConnector="211.695238587889,115.164705744943"
               Start="0,0"
-              End="-253.466667262713,45.7235293286483">
+              End="211.695238587889,107.664705744943">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.6962157772834" />
+                    End="0,42.9461220871104" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.6962157772834"
-                    Point2="0,21.6962157772834"
-                    Point3="-4,21.6962157772834" />
+                    Point1="0,42.9461220871104"
+                    Point2="0,46.9461220871104"
+                    Point3="4,46.9461220871104" />
                   <mssgle:LineSegment
-                    End="-249.466667262713,21.6962157772834" />
+                    End="207.695238587889,46.9461220871104" />
                   <mssgle:CubicBezierSegment
-                    Point1="-249.466667262713,21.6962157772834"
-                    Point2="-253.466667262713,21.6962157772834"
-                    Point3="-253.466667262713,25.6962157772834" />
+                    Point1="207.695238587889,46.9461220871104"
+                    Point2="211.695238587889,46.9461220871104"
+                    Point3="211.695238587889,50.9461220871104" />
                   <mssgle:LineSegment
-                    End="-253.466667262713,45.7235293286483" />
+                    End="211.695238587889,107.664705744943" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-226.552357068857,26.6962157772834,199.638046875,12.1953125"
+              BoundingBox="-1.04140414355562,51.9461220871104,213.778046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1142,7 +1340,7 @@ where [refTable].[ShipperSK] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Shipper\Get Shippers">
+    design-time-name="Package\Load Product\Get Product">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1150,7 +1348,30 @@ where [refTable].[ShipperSK] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Shipper\Load dim">
+    design-time-name="Package\Load Product\Búsqueda">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimProduct]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Product\Load staging">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1163,30 +1384,7 @@ where [refTable].[ShipperSK] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Shipper\Búsqueda">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimShipper]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Shipper\Load staging">
+    design-time-name="Package\Load Product\Load Dim">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
