@@ -34,14 +34,14 @@ El proyecto implementa una solución completa de base de datos para NorthWind, u
 - **20 índices** para optimización
 - **8 check constraints** para validación de datos
 **Tablas principales**
- -Customers
- -Orders
- -Order Details
- -Products
- -Employees
- -Categories
- -Suppliers
- -Shippers
+ - Customers
+ - Orders
+ - Order Details
+ - Products
+ - Employees
+ - Categories
+ - Suppliers
+ - Shippers
 
  ### 2. Modelo Data Warehouse
 
@@ -52,15 +52,15 @@ El proyecto implementa una solución completa de base de datos para NorthWind, u
 - **5 relaciones** (claves foráneas desde la tabla de hechos hacia las dimensiones)
   
 **Tablas de demensiones**
- -DimDate
- -DimCustomer
- -DimEmployee
- -DimProduct
- -DimGeography
- -DimShipper
+ - DimDate
+ - DimCustomer
+ - DimEmployee
+ - DimProduct
+ - DimGeography
+ - DimShipper
  
 **Tablas de hechos**
- -FactSales
+ - FactSales
   
 ## Proyecto ETL (SSIS)
 
